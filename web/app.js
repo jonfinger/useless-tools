@@ -4,21 +4,11 @@
   var CANONICAL_ORIGIN = "https://jonfinger.com";
   var TOOL_IDS = ["url-lengthener", "useless-facts", "obtuse-helper"];
 
-  var TOOL_PROFILE = {
-    "url-lengthener": { chaos: 52, precision: 68, aesthetic: 74, utility: 80, title: "URL Lengthener" },
-    "useless-facts": { chaos: 71, precision: 39, aesthetic: 58, utility: 20, title: "Useless Facts" },
-    "obtuse-helper": { chaos: 84, precision: 31, aesthetic: 66, utility: 43, title: "Obtuse Helper" }
-  };
-
   var songRows = Array.prototype.slice.call(document.querySelectorAll("[data-tool-select]"));
   var panels = Array.prototype.slice.call(document.querySelectorAll(".tool-panel"));
 
   var toolCounter = document.getElementById("tool-counter");
   var activeToolReadout = document.getElementById("active-tool-readout");
-  var metricChaos = document.getElementById("metric-chaos");
-  var metricPrecision = document.getElementById("metric-precision");
-  var metricAesthetic = document.getElementById("metric-aesthetic");
-  var metricUtility = document.getElementById("metric-utility");
 
   var urlForm = document.getElementById("url-form");
   var targetUrlInput = document.getElementById("target-url");
@@ -57,17 +47,27 @@
     return TOOL_IDS.indexOf(toolId);
   }
 
-  function setProfileMetrics(toolId) {
-    var profile = TOOL_PROFILE[toolId];
-    if (!profile) {
+  function setActiveReadout(toolId) {
+    var selected = null;
+    var i;
+
+    for (i = 0; i < songRows.length; i += 1) {
+      if (songRows[i].getAttribute("data-tool-select") === toolId) {
+        selected = songRows[i];
+        break;
+      }
+    }
+
+    if (!selected) {
       return;
     }
 
-    metricChaos.textContent = String(profile.chaos);
-    metricPrecision.textContent = String(profile.precision);
-    metricAesthetic.textContent = String(profile.aesthetic);
-    metricUtility.textContent = String(profile.utility);
-    activeToolReadout.textContent = "Now selecting: " + profile.title;
+    var titleEl = selected.querySelector(".song-row__title");
+    if (!titleEl) {
+      return;
+    }
+
+    activeToolReadout.textContent = "Now selecting: " + titleEl.textContent;
   }
 
   function setCounter(toolId) {
@@ -104,7 +104,7 @@
     });
 
     setCounter(toolId);
-    setProfileMetrics(toolId);
+    setActiveReadout(toolId);
   }
 
   function showError(message) {
