@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  var CANONICAL_ORIGIN = "https://jonfinger.com";
+  var CANONICAL_ORIGIN = window.location.origin || "https://uselesstools.jonfinger.com";
   var TOOL_IDS = ["url-lengthener", "useless-facts", "obtuse-helper"];
 
   var songRows = Array.prototype.slice.call(document.querySelectorAll("[data-tool-select]"));
@@ -186,7 +186,7 @@
     };
 
     var payloadEncoded = encodeBase64Url(JSON.stringify(payload));
-    var prefix = CANONICAL_ORIGIN + "/useless-tools/r/?v=1&p=" + payloadEncoded + "&n=";
+    var prefix = CANONICAL_ORIGIN + "/r/?v=1&p=" + payloadEncoded + "&n=";
 
     var fillSize = targetLength - prefix.length;
     if (fillSize < 12) {
