@@ -93,12 +93,12 @@ legend,
   display: inline-flex;
   gap: 0.7rem;
   align-items: center;
-  background: linear-gradient(90deg, rgba(240, 236, 255, 0.94) 0 38%, rgba(173, 151, 242, 0.9) 38% 100%);
-  color: #17122f;
+  background: rgba(62, 52, 100, 0.95);
+  color: var(--text-strong);
   border: 2px solid rgba(240, 236, 255, 0.7);
   border-radius: 5px;
   padding: 0.34rem 0.58rem;
-  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.52);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.52);
 }
 
 .title-strip__label {
@@ -193,10 +193,10 @@ h1 {
   text-align: left;
   border: 2px solid rgba(214, 201, 255, 0.62);
   border-radius: 4px;
-  background: linear-gradient(90deg, rgba(34, 27, 63, 0.94), rgba(18, 15, 38, 0.9));
+  background: rgba(29, 23, 54, 0.95);
   color: var(--text-strong);
   padding: 0.62rem 0.72rem 0.6rem 2.1rem;
-  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.54);
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.54);
   cursor: pointer;
   transition: transform 140ms ease, border-color 140ms ease, box-shadow 180ms ease;
 }
@@ -235,10 +235,8 @@ h1 {
 
 .song-row.is-selected {
   border-color: rgba(255, 255, 255, 0.88);
-  background: linear-gradient(90deg, rgba(72, 58, 124, 0.92), rgba(31, 24, 57, 0.95));
-  box-shadow:
-    3px 3px 0 rgba(0, 0, 0, 0.58),
-    0 0 24px -12px rgba(214, 201, 255, 0.72);
+  background: rgba(66, 54, 111, 0.95);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.58);
 }
 
 .song-row.is-selected::before {
@@ -356,11 +354,11 @@ h1 {
 .generate-button {
   border: 2px solid rgba(240, 236, 255, 0.58);
   border-radius: 4px;
-  background: linear-gradient(180deg, rgba(38, 30, 71, 0.95), rgba(18, 15, 37, 0.95));
+  background: rgba(33, 26, 62, 0.96);
   color: var(--text-strong);
   text-decoration: none;
   padding: 0.44rem 0.62rem;
-  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.56);
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.56);
 }
 
 .preset-button {
@@ -369,6 +367,7 @@ h1 {
 
 .preset-button.is-selected {
   border-color: rgba(240, 236, 255, 0.74);
+  background: rgba(58, 48, 95, 0.97);
   color: var(--accent);
 }
 
@@ -399,7 +398,7 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   border-color: rgba(240, 236, 255, 0.74);
-  background: linear-gradient(180deg, rgba(72, 58, 124, 0.95), rgba(31, 24, 57, 0.94));
+  background: rgba(66, 55, 110, 0.97);
   color: var(--accent);
 }
 
