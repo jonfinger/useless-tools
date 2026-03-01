@@ -8,7 +8,7 @@ This file defines how contributors and coding agents should work in `useless-too
 
 - This repository owns the source code for the Useless Tools app.
 - MVP is static-only (`HTML/CSS/JS`) with no backend.
-- Deployment target is `jonfinger.com/useless-tools/` via sync into the Quarto site repo.
+- Deployment target is `https://uselesstools.jonfinger.com` via GitHub Pages.
 
 ## Guardrails
 
@@ -33,7 +33,7 @@ This file defines how contributors and coding agents should work in `useless-too
 
 - Small diffs over large rewrites.
 - Keep public URL contract stable unless explicitly requested:
-  - `/useless-tools/r/?v=1&p=<payload>&n=<noise>`
+  - `/r/?v=1&p=<payload>&n=<noise>`
 - Document behavior changes in `README.md`.
 
 ## Verification Checklist
@@ -43,12 +43,11 @@ Before finalizing changes:
 - URL Lengthener validates and generates long URLs.
 - Copy and open actions work.
 - Redirect page safely resolves valid payloads and rejects invalid ones.
-- Sync script updates `jonfinger.com/useless-tools/` correctly.
-- `quarto render` succeeds in `jonfinger.com` after syncing.
+- GitHub Actions Pages workflow can deploy `web/`.
+- `web/CNAME` stays aligned with the custom domain.
 
 ## Integration Checklist
 
-1. Run `./scripts/sync_to_jonfinger.sh` from this repo.
-2. Confirm files appear in `/Users/jaef/things/jonfinger.com/useless-tools/`.
-3. Render the site in `jonfinger.com`.
-4. Verify `/useless-tools/` and `/useless-tools/r/` in generated `docs/` output.
+1. Confirm `.github/workflows/deploy-pages.yml` deploys `web/`.
+2. Confirm `web/CNAME` is `uselesstools.jonfinger.com`.
+3. In `jonfinger.com`, link to `https://uselesstools.jonfinger.com` instead of mirrored app files.
